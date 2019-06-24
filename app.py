@@ -49,7 +49,8 @@ class MunichVRLab(Application):
     def augmented(self, entity_type, entity_ids):
         # this message will be displayed to the user
         self.engine.log_info("Augmented Script Requested")
-        self.print_context()
+        launch_publish = self.get_launch_publish_instance()
+        launch_publish.launch_publish(entity_type, entity_ids)
 
     def collaboration(self, entity_type, entity_ids):
         # this message will be displayed to the user
@@ -63,10 +64,6 @@ class MunichVRLab(Application):
         # this message will be displayed to the user
         self.engine.log_info("Powerwall Script Requested")
 
-    def print_context(self):
-
-        whereami = self.print_context
-        logger.debug("RA: whereami is %s" % whereami)
-        logger.debug("RA: entity_type is %s" % entity_type)
-        logger.debug("RA: entity_ids is %s" % entity_ids)
-        
+    def get_launch_publish_instance(self):
+        # Get an instance of the tk-shotgun-launchpublish
+        return self.engine.apps["tk-shotgun-launchpublish"]
