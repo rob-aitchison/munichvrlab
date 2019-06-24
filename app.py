@@ -16,40 +16,57 @@ import sgtk
 
 logger = sgtk.platform.get_logger(__name__)
 
-class HelloWorld(Application):
+class MunichVRLab(Application):
 
     def init_app(self):
         """
         Register menu items with Shotgun
         """        
         params = {
-            "title": "Hello, World!",
+            "title": "Augmented",
         }
 
-        self.engine.register_command("hello_world_cmd", self.do_stuff, params)
+        self.engine.register_command("augmented_cmd", self.augmented, params)
 
         params2 = {
-            "title": "Hello, Universe!",
+            "title": "Collaboration",
         }
 
-        self.engine.register_command("hello_universe_cmd", self.do_stuff2, params2)
+        self.engine.register_command("collaboration_cmd", self.collaboration, params2)
 
-    def do_stuff(self, entity_type, entity_ids):
+        params3 = {
+            "title": "Play Video",
+        }
+
+        self.engine.register_command("playvideo_cmd", self.playvideo, params3)
+
+        params4 = {
+            "title": "Powerwall",
+        }
+
+        self.engine.register_command("powerwall_cmd", self.powerwall, params4)
+
+    def augmented(self, entity_type, entity_ids):
         # this message will be displayed to the user
-        self.engine.log_info("Hello, World!")
-        # self.print_context()
+        self.engine.log_info("Augmented Script Requested")
+        self.print_context()
 
-        
-    def do_stuff2(self, entity_type, entity_ids):
+    def collaboration(self, entity_type, entity_ids):
         # this message will be displayed to the user
-        self.engine.log_info("Hello, Universe!")
+        self.engine.log_info("Collaboration Script Requested")
 
+    def playvideo(self, entity_type, entity_ids):
+        # this message will be displayed to the user
+        self.engine.log_info("Play Video Script Requested")
 
+    def powerwall(self, entity_type, entity_ids):
+        # this message will be displayed to the user
+        self.engine.log_info("Powerwall Script Requested")
 
-    # def print_context(self):
+    def print_context(self):
 
-    #     whereami = self.print_context
-    #     logger.debug("RA: whereami is %s" % whereami)
-    #     # logger.debug("RA: entity_type is %s" % entity_type)
-    #     # logger.debug("RA: entity_ids is %s" % entity_ids)
+        whereami = self.print_context
+        logger.debug("RA: whereami is %s" % whereami)
+        logger.debug("RA: entity_type is %s" % entity_type)
+        logger.debug("RA: entity_ids is %s" % entity_ids)
         
