@@ -21,8 +21,8 @@ supported_engines:
 requires_shotgun_fields:
         
 # More verbose description of this item 
-display_name: "Shotgun Pipeline Toolkit Hello World Example"
-description: "Based on the Template App for Shotgun Pipeline Toolkit."
+display_name: "Shotgun Pipeline Toolkit Munich VR Lab Example"
+description: "Used rob-aitchison/tk-multi-helloworld as a Template repo."
 
 # Required minimum versions for this item to run
 requires_shotgun_version:
