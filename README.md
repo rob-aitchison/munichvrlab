@@ -1,8 +1,4 @@
-# Welcome to the Shotgun Pipeline Toolkit Hello World example
+# Welcome to the Shotgun Pipeline Toolkit Munich VR Lab example
 
-This app was forked from tk-multi-starterapp to create a bare-bones example to work with.
+Started with rob-aitchison/tk-multi-helloworld as a Github Template repository
 
-It will contain two commands to register with a Shotgun Engine:
-
-- Hello, World!
-- Hello, Universe!
