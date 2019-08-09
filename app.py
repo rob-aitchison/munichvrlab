@@ -35,16 +35,10 @@ class MunichVRLab(Application):
         self.engine.register_command("collaboration_cmd", self.collaboration, params2)
 
         params3 = {
-            "title": "Play Video",
-        }
-
-        self.engine.register_command("playvideo_cmd", self.playvideo, params3)
-
-        params4 = {
             "title": "Powerwall",
         }
 
-        self.engine.register_command("powerwall_cmd", self.powerwall, params4)
+        self.engine.register_command("powerwall_cmd", self.powerwall, params3)
 
     def augmented(self, entity_type, entity_ids):
         # this message will be displayed to the user
@@ -77,13 +71,6 @@ class MunichVRLab(Application):
 
         self.engine.log_info("Collaboration Script Launched")
 
-    def playvideo(self, entity_type, entity_ids):
-        # this message will be displayed to the user
-        self.engine.log_info("Play Video Script Requested")
-
-        subprocess.Popen('wmplayer', '\\\\10.146.20.210\\Resources\\Videos\\Showreels\\Showreel_2017_AEC.mp4', '/fullscreen')
-
-        self.engine.log_info("Play Video Script Launched")
 
     def powerwall(self, entity_type, entity_ids):
         # this message will be displayed to the user
@@ -99,5 +86,3 @@ class MunichVRLab(Application):
         subprocess.Popen([launch_info.path, launch_info.args, chosen_file["path"]["local_path_windows"], '-postpython', 'load(\'//10.146.20.210/Demo/VRED/Powerwall/Tiguan_Powerwall_BG_4.vpb\'); selectVariantSet(\'Demo_Auto_Start\')'])
 
         self.engine.log_info("Powerwall Script Launched")
-
-
