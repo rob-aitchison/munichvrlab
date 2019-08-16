@@ -23,19 +23,19 @@ class MunichVRLab(Application):
         Register menu items with Shotgun
         """        
         params = {
-            "title": "Augmented",
+            "title": "Augmented Local Test",
         }
 
         self.engine.register_command("augmented_cmd", self.augmented, params)
 
         params2 = {
-            "title": "Collaboration",
+            "title": "Collaboration Local Test",
         }
 
         self.engine.register_command("collaboration_cmd", self.collaboration, params2)
 
         params3 = {
-            "title": "Powerwall",
+            "title": "Powerwall Local Test",
         }
 
         self.engine.register_command("powerwall_cmd", self.powerwall, params3)
@@ -51,7 +51,7 @@ class MunichVRLab(Application):
         software_launcher = sgtk.platform.create_engine_launcher(tk, context, "tk-vred")
         software_versions = software_launcher.scan_software()
         launch_info = software_launcher.prepare_launch(software_versions[-1].path, chosen_file["path"]["local_path_windows"])
-        subprocess.Popen([launch_info.path, launch_info.args, chosen_file["path"]["local_path_windows"], '-postpython', 'load(\'//10.146.20.210/Demo/VRED/Augmented/SRG_Augmented_V9.vpb\')'])
+        subprocess.Popen([launch_info.path, launch_info.args, chosen_file["path"]["local_path_windows"], '-postpython', 'load(\'R:\\automotive-training\\vred_files\\Seats.vpb\')'])
 
         self.engine.log_info("Augmented Script Launched")
 
@@ -67,7 +67,7 @@ class MunichVRLab(Application):
         software_launcher = sgtk.platform.create_engine_launcher(tk, context, "tk-vred")
         software_versions = software_launcher.scan_software()
         launch_info = software_launcher.prepare_launch(software_versions[-1].path, chosen_file["path"]["local_path_windows"])
-        subprocess.Popen([launch_info.path, launch_info.args, chosen_file["path"]["local_path_windows"], '-postpython', 'load(\'//10.146.20.210/Demo/VRED/Collaboration/Collab_2019_2_VW_Tiguan_35_VARJO.vpb\')'])
+        subprocess.Popen([launch_info.path, launch_info.args, chosen_file["path"]["local_path_windows"], '-postpython', 'load(\'R:\\automotive-training\\vred_files\\Seats.vpb\')'])
 
         self.engine.log_info("Collaboration Script Launched")
 
@@ -83,6 +83,6 @@ class MunichVRLab(Application):
         software_launcher = sgtk.platform.create_engine_launcher(tk, context, "tk-vred")
         software_versions = software_launcher.scan_software()
         launch_info = software_launcher.prepare_launch(software_versions[-1].path, chosen_file["path"]["local_path_windows"])
-        subprocess.Popen([launch_info.path, launch_info.args, chosen_file["path"]["local_path_windows"], '-postpython', 'load(\'//10.146.20.210/Demo/VRED/Powerwall/Tiguan_Powerwall_BG_4.vpb\'); selectVariantSet(\'Demo_Auto_Start\')'])
+        subprocess.Popen([launch_info.path, launch_info.args, chosen_file["path"]["local_path_windows"], '-postpython', 'load(\'R:\\automotive-training\\vred_files\\Seats.vpb\')])
 
         self.engine.log_info("Powerwall Script Launched")
