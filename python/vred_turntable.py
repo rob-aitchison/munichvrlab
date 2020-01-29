@@ -110,6 +110,8 @@ class VREDTurntablePublishPlugin(HookBaseClass):
             instances.
         :param item: Item to process
         """
+        super(VREDTurntablePublishPlugin, self).publish(settings, item)
+
         self.logger.info("Publishing Turntable")
 
         publisher = self.parent
@@ -138,16 +140,16 @@ class VREDTurntablePublishPlugin(HookBaseClass):
             path_components = publisher.util.get_file_path_components(path)
             publish_name = path_components["filename"]
 
-        self.logger.info("Creating Version...")
-        version_data = {
-            "project": item.context.project,
-            "code": publish_name,
-            "description": item.description,
-            "entity": self._get_version_entity(item),
-            "sg_task": item.context.task
-        }
-        version = publisher.shotgun.create("Version", version_data)
-        self.logger.info("Version created!")
+        # self.logger.info("Creating Version...")
+        # version_data = {
+        #     "project": item.context.project,
+        #     "code": publish_name,
+        #     "description": item.description,
+        #     "entity": self._get_version_entity(item),
+        #     "sg_task": item.context.task
+        # }
+        # version = publisher.shotgun.create("Version", version_data)
+        # self.logger.info("Version created!")
 
         path = "c:/temp/turntable/turntable.mp4"
         upload_path = path.decode("utf-8")
@@ -159,9 +161,17 @@ class VREDTurntablePublishPlugin(HookBaseClass):
 
         self.parent.shotgun.upload(
             "Version",
-            version["id"],
+            version_data["id"],
             upload_path,
             "sg_uploaded_movie"
+        )
+
+        midframe = "C:/temp/turntable/turntable4.png"
+
+        self.parent.shotgun.upload_thumbnail(
+            "Version",
+            version_data["id"],
+            midframe
         )
 
     def finalize(self, settings, item):
