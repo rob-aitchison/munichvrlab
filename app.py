@@ -50,7 +50,7 @@ class MunichVRLab(Application):
 
         software_launcher = sgtk.platform.create_engine_launcher(tk, context, "tk-vred")
         software_versions = software_launcher.scan_software()
-        launch_info = software_launcher.prepare_launch(software_versions[-1].path, chosen_file["path"]["local_path_windows"])
+        launch_info = software_launcher.prepare_launch(software_versions[-1].path, "")
         subprocess.Popen([launch_info.path, launch_info.args, chosen_file["path"]["local_path_windows"], '-postpython', 'load(\'//10.146.20.210/Demo/VRED/Augmented/SRG_Augmented_V9.vpb\')'])
 
         self.engine.log_info("Augmented Script Launched")
@@ -66,7 +66,7 @@ class MunichVRLab(Application):
 
         software_launcher = sgtk.platform.create_engine_launcher(tk, context, "tk-vred")
         software_versions = software_launcher.scan_software()
-        launch_info = software_launcher.prepare_launch(software_versions[-1].path, chosen_file["path"]["local_path_windows"])
+        launch_info = software_launcher.prepare_launch(software_versions[-1].path, "")
         subprocess.Popen([launch_info.path, launch_info.args, chosen_file["path"]["local_path_windows"], '-postpython', 'load(\'//10.146.20.210/Demo/VRED/Collaboration/Collab_2019_2_VW_Tiguan_35_VARJO.vpb\')'])
 
         self.engine.log_info("Collaboration Script Launched")
@@ -82,7 +82,7 @@ class MunichVRLab(Application):
 
         software_launcher = sgtk.platform.create_engine_launcher(tk, context, "tk-vred")
         software_versions = software_launcher.scan_software()
-        launch_info = software_launcher.prepare_launch(software_versions[-1].path, chosen_file["path"]["local_path_windows"])
+        launch_info = software_launcher.prepare_launch(software_versions[-1].path, "")
         subprocess.Popen([launch_info.path, launch_info.args, chosen_file["path"]["local_path_windows"], '-postpython', 'load(\'//10.146.20.210/Demo/VRED/Powerwall/Tiguan_Powerwall_BG_4.vpb\'); selectVariantSet(\'Demo_Auto_Start\')'])
 
         self.engine.log_info("Powerwall Script Launched")
