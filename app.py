@@ -13,8 +13,8 @@
 from sgtk.platform import Application
 
 import sgtk
-
 import subprocess
+import os
 
 class MunichVRLab(Application):
 
